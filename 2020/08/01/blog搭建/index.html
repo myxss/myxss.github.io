@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="#博客搭建过程-首先是jekyll搭建，搭建完成后发现不好看。。。  –这里就用的是hexo  一、环境安装：​    –搭建过程很简单 ​    https:&#x2F;&#x2F;hexo.io&#x2F;zh-cn&#x2F;docs&#x2F;     ​     二、换主题​    主题下载：https:&#x2F;&#x2F;github.com&#x2F;GroverChouT&#x2F;cactus-dark-zh ​    这里注意下，首先要装好hexo，然后在hex">
+<meta property="og:type" content="article">
+<meta property="og:title" content="blog搭建">
+<meta property="og:url" content="http://91doufu.com/2020/08/01/blog%E6%90%AD%E5%BB%BA/index.html">
+<meta property="og:site_name" content="blackdodufu&#39;blog">
+<meta property="og:description" content="#博客搭建过程-首先是jekyll搭建，搭建完成后发现不好看。。。  –这里就用的是hexo  一、环境安装：​    –搭建过程很简单 ​    https:&#x2F;&#x2F;hexo.io&#x2F;zh-cn&#x2F;docs&#x2F;     ​     二、换主题​    主题下载：https:&#x2F;&#x2F;github.com&#x2F;GroverChouT&#x2F;cactus-dark-zh ​    这里注意下，首先要装好hexo，然后在hex">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1ghbgtx4sgxj30ng054aaq.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1ghbgw51zmej31am0tq40h.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1ghbgz4a4lgj30y005omy0.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1ghbh1tnpc4j31dg0hgjtu.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1ghbh3kv1h3j30wu0pgjx1.jpg">
+<meta property="article:published_time" content="2020-08-01T09:49:25.000Z">
+<meta property="article:modified_time" content="2020-08-01T10:14:20.399Z">
+<meta property="article:author" content="blackdodufu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1ghbgtx4sgxj30ng054aaq.jpg">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>blog搭建</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <li><a href="/">首页</a></li><li><a href="/about/">关于</a></li><li><a href="/archives/">写作</a></li><li><a href="/tags/ctf/">CTF</a></li><li><a href="/tags/%E6%B8%97%E9%80%8F/">渗透</a></li>
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2020/08/01/123/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">回到顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://91doufu.com/2020/08/01/blog%E6%90%AD%E5%BB%BA/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://91doufu.com/2020/08/01/blog%E6%90%AD%E5%BB%BA/&text=blog搭建"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://91doufu.com/2020/08/01/blog%E6%90%AD%E5%BB%BA/&title=blog搭建"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://91doufu.com/2020/08/01/blog%E6%90%AD%E5%BB%BA/&is_video=false&description=blog搭建"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=blog搭建&body=Check out this article: http://91doufu.com/2020/08/01/blog%E6%90%AD%E5%BB%BA/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://91doufu.com/2020/08/01/blog%E6%90%AD%E5%BB%BA/&title=blog搭建"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://91doufu.com/2020/08/01/blog%E6%90%AD%E5%BB%BA/&title=blog搭建"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://91doufu.com/2020/08/01/blog%E6%90%AD%E5%BB%BA/&title=blog搭建"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://91doufu.com/2020/08/01/blog%E6%90%AD%E5%BB%BA/&title=blog搭建"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://91doufu.com/2020/08/01/blog%E6%90%AD%E5%BB%BA/&name=blog搭建&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">#博客搭建过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%EF%BC%9A"><span class="toc-number">1.0.1.</span> <span class="toc-text">一、环境安装：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%8D%A2%E4%B8%BB%E9%A2%98"><span class="toc-number">1.0.2.</span> <span class="toc-text">二、换主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%88%9D%E6%AD%A5%E7%BE%8E%E5%8C%96"><span class="toc-number">1.0.3.</span> <span class="toc-text">三、初步美化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E7%9B%B4%E6%8E%A5%E5%AE%8C%E6%88%90"><span class="toc-number">1.0.4.</span> <span class="toc-text">四、直接完成</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        blog搭建
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">blackdodufu'blog</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2020-08-01T09:49:25.000Z" itemprop="datePublished">2020-08-01</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="博客搭建过程"><a href="#博客搭建过程" class="headerlink" title="#博客搭建过程"></a>#博客搭建过程</h1><p>-首先是jekyll搭建，搭建完成后发现不好看。。。</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghbgtx4sgxj30ng054aaq.jpg" alt="image-20200801180148562"></p>
+<p>–这里就用的是hexo</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghbgw51zmej31am0tq40h.jpg" alt="image-20200801180357385"></p>
+<h3 id="一、环境安装："><a href="#一、环境安装：" class="headerlink" title="一、环境安装："></a>一、环境安装：</h3><p>​    –搭建过程很简单</p>
+<p>​    <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">https://hexo.io/zh-cn/docs/</a>    </p>
+<p>​    <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghbgz4a4lgj30y005omy0.jpg" alt="image-20200801180649199"></p>
+<h3 id="二、换主题"><a href="#二、换主题" class="headerlink" title="二、换主题"></a>二、换主题</h3><p>​    主题下载：<a target="_blank" rel="noopener" href="https://github.com/GroverChouT/cactus-dark-zh">https://github.com/GroverChouT/cactus-dark-zh</a></p>
+<p>​    这里注意下，首先要装好hexo，然后在hexo的目录里面运行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https:&#x2F;&#x2F;github.com&#x2F;GroverChouT&#x2F;cactus-dark-zh.git themes&#x2F;cactus-dark-zh</span><br><span class="line">$ npm install hexo-pagination --save</span><br></pre></td></tr></table></figure>
+
+<p>​    <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghbh1tnpc4j31dg0hgjtu.jpg" alt="image-20200801180925176">            </p>
+<h3 id="三、初步美化"><a href="#三、初步美化" class="headerlink" title="三、初步美化"></a>三、初步美化</h3><p>这里主要是对博客的文章进行分类</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghbh3kv1h3j30wu0pgjx1.jpg" alt="image-20200801181105455"></p>
+<h3 id="四、直接完成"><a href="#四、直接完成" class="headerlink" title="四、直接完成"></a>四、直接完成</h3><p>​    –收工</p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">写作</a></li>
+         
+          <li><a href="/tags/ctf/">CTF</a></li>
+         
+          <li><a href="/tags/%E6%B8%97%E9%80%8F/">渗透</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">#博客搭建过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%EF%BC%9A"><span class="toc-number">1.0.1.</span> <span class="toc-text">一、环境安装：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%8D%A2%E4%B8%BB%E9%A2%98"><span class="toc-number">1.0.2.</span> <span class="toc-text">二、换主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%88%9D%E6%AD%A5%E7%BE%8E%E5%8C%96"><span class="toc-number">1.0.3.</span> <span class="toc-text">三、初步美化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E7%9B%B4%E6%8E%A5%E5%AE%8C%E6%88%90"><span class="toc-number">1.0.4.</span> <span class="toc-text">四、直接完成</span></a></li></ol></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://91doufu.com/2020/08/01/blog%E6%90%AD%E5%BB%BA/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://91doufu.com/2020/08/01/blog%E6%90%AD%E5%BB%BA/&text=blog搭建"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://91doufu.com/2020/08/01/blog%E6%90%AD%E5%BB%BA/&title=blog搭建"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://91doufu.com/2020/08/01/blog%E6%90%AD%E5%BB%BA/&is_video=false&description=blog搭建"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=blog搭建&body=Check out this article: http://91doufu.com/2020/08/01/blog%E6%90%AD%E5%BB%BA/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://91doufu.com/2020/08/01/blog%E6%90%AD%E5%BB%BA/&title=blog搭建"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://91doufu.com/2020/08/01/blog%E6%90%AD%E5%BB%BA/&title=blog搭建"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://91doufu.com/2020/08/01/blog%E6%90%AD%E5%BB%BA/&title=blog搭建"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://91doufu.com/2020/08/01/blog%E6%90%AD%E5%BB%BA/&title=blog搭建"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://91doufu.com/2020/08/01/blog%E6%90%AD%E5%BB%BA/&name=blog搭建&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> 目录</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> 顶部</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> 菜单</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    版权所有 &copy; 2020 blackdodufu
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <li><a href="/">首页</a></li><li><a href="/about/">关于</a></li><li><a href="/archives/">写作</a></li><li><a href="/tags/ctf/">CTF</a></li><li><a href="/tags/%E6%B8%97%E9%80%8F/">渗透</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+
+
+<!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-86660611-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+
