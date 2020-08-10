@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="一、pyspider安装​        项目地址 ​                https:&#x2F;&#x2F;github.com&#x2F;binux&#x2F;pyspider ​        直接官方教程 ​                http:&#x2F;&#x2F;docs.pyspider.org&#x2F;en&#x2F;latest&#x2F; ​        本机用的是ubuntu,先安装依赖环境 ​                apt-get">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pyspider初步使用">
+<meta property="og:url" content="http://91doufu.com/2020/08/10/pyspide%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="blackdodufu&#39;blog">
+<meta property="og:description" content="一、pyspider安装​        项目地址 ​                https:&#x2F;&#x2F;github.com&#x2F;binux&#x2F;pyspider ​        直接官方教程 ​                http:&#x2F;&#x2F;docs.pyspider.org&#x2F;en&#x2F;latest&#x2F; ​        本机用的是ubuntu,先安装依赖环境 ​                apt-get">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1ghly799towj30zq060q3q.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1ghly80x9x5j32760ncn2k.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1ghly923n9vj326w0lyn7o.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1ghlya801vaj327y06saax.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1ghlyb8lli9j327s0cwafw.jpg">
+<meta property="article:published_time" content="2020-08-10T11:21:26.000Z">
+<meta property="article:modified_time" content="2020-08-10T11:44:14.791Z">
+<meta property="article:author" content="blackdodufu">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/007S8ZIlly1ghly799towj30zq060q3q.jpg">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>pyspider初步使用</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <li><a href="/">首页</a></li><li><a href="/about/">关于</a></li><li><a href="/archives/">文章</a></li><li><a href="/tags/ctf/">CTF</a></li><li><a href="/tags/%E6%B8%97%E9%80%8F/">渗透</a></li><li><a href="/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">代码审计</a></li>
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2020/08/05/%E6%9F%90cms%E5%90%8E%E5%8F%B0%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">回到顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://91doufu.com/2020/08/10/pyspide%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://91doufu.com/2020/08/10/pyspide%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/&text=pyspider初步使用"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://91doufu.com/2020/08/10/pyspide%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/&title=pyspider初步使用"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://91doufu.com/2020/08/10/pyspide%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/&is_video=false&description=pyspider初步使用"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=pyspider初步使用&body=Check out this article: http://91doufu.com/2020/08/10/pyspide%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://91doufu.com/2020/08/10/pyspide%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/&title=pyspider初步使用"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://91doufu.com/2020/08/10/pyspide%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/&title=pyspider初步使用"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://91doufu.com/2020/08/10/pyspide%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/&title=pyspider初步使用"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://91doufu.com/2020/08/10/pyspide%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/&title=pyspider初步使用"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://91doufu.com/2020/08/10/pyspide%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/&name=pyspider初步使用&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81pyspider%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">一、pyspider安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%88%AC%E5%8F%96%E6%A1%88%E4%BE%8B%EF%BC%88%E5%BB%BA%E8%AE%AE%E5%A4%A7%E5%AE%B6%E5%85%88%E7%9C%8B%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">二、爬取案例（建议大家先看官方文档,快速入门）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E4%B8%AD%E9%97%B4%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91"><span class="toc-number">3.</span> <span class="toc-text">三、中间遇到的坑</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        pyspider初步使用
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">blackdodufu'blog</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2020-08-10T11:21:26.000Z" itemprop="datePublished">2020-08-10</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/python/" rel="tag">python</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h3 id="一、pyspider安装"><a href="#一、pyspider安装" class="headerlink" title="一、pyspider安装"></a>一、pyspider安装</h3><p>​        项目地址</p>
+<p>​                <a target="_blank" rel="noopener" href="https://github.com/binux/pyspider">https://github.com/binux/pyspider</a></p>
+<p>​        直接官方教程</p>
+<p>​                <a target="_blank" rel="noopener" href="http://docs.pyspider.org/en/latest/">http://docs.pyspider.org/en/latest/</a></p>
+<p>​        本机用的是ubuntu,先安装依赖环境</p>
+<p>​                <code>apt-get install python python-dev python-distribute python-pip \ libcurl4-openssl-dev libxml2-dev libxslt1-dev python-lxml \ libssl-dev zlib1g-dev</code></p>
+<p>​        安装python3 、 pip3 （这里需要注意python3.7版本中有一个变量名冲突，会报错，如果嫌麻烦，可以降级使用3.6）</p>
+<p>​        <code>pip3 install pyspider</code></p>
+<p>​        </p>
+<p>​    同时请根据需要安装PhantomJS：<a target="_blank" rel="noopener" href="http://phantomjs.org/build.html%EF%BC%88%E8%AF%B7%E6%B7%BB%E5%8A%A0%E5%88%B0%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%EF%BC%89">http://phantomjs.org/build.html（请添加到环境变量）</a></p>
+<h3 id="二、爬取案例（建议大家先看官方文档-快速入门）"><a href="#二、爬取案例（建议大家先看官方文档-快速入门）" class="headerlink" title="二、爬取案例（建议大家先看官方文档,快速入门）"></a>二、爬取案例（建议大家先看官方文档,快速入门）</h3><p>​        参见案例教程地址</p>
+<p>​        <a target="_blank" rel="noopener" href="https://www.yht7.com/news/19825">https://www.yht7.com/news/19825</a></p>
+<p>​        </p>
+<p>​        1、运行![image-20200810193623094](/Users/doufu/Library/Application Support/typora-user-images/image-20200810193623094.png)</p>
+<p>​        如果遇见端口冲突请结束端口进程（lspf -i:25555）</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghly799towj30zq060q3q.jpg" alt="image-20200810193828129"></p>
+<p>2、访问web界面</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghly80x9x5j32760ncn2k.jpg" alt="image-20200810193912431">        </p>
+<p>3、进入项目页面，进行相关数据抓取</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghly923n9vj326w0lyn7o.jpg" alt="image-20200810194011649"></p>
+<p>4、项目运行，返回主界面，把项目改为runing，同时点run运行</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghlya801vaj327y06saax.jpg" alt="image-20200810194119570"></p>
+<p>5、项目运行结束，从项目中取出结果</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghlyb8lli9j327s0cwafw.jpg" alt="image-20200810194217904"></p>
+<h3 id="三、中间遇到的坑"><a href="#三、中间遇到的坑" class="headerlink" title="三、中间遇到的坑"></a>三、中间遇到的坑</h3><p>端口占用<a target="_blank" rel="noopener" href="http://lazybios.com/2015/03/netstat-notes/">http://lazybios.com/2015/03/netstat-notes/</a></p>
+<p>Deprecated option ‘domaincontroller’:<a target="_blank" rel="noopener" href="https://blog.csdn.net/u011451186/article/details/88222328">https://blog.csdn.net/u011451186/article/details/88222328</a></p>
+<p>cannot import name DispatcherMiddleware<a target="_blank" rel="noopener" href="https://blog.csdn.net/ShiMengRan107/article/details/104395751">https://blog.csdn.net/ShiMengRan107/article/details/104395751</a></p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">文章</a></li>
+         
+          <li><a href="/tags/ctf/">CTF</a></li>
+         
+          <li><a href="/tags/%E6%B8%97%E9%80%8F/">渗透</a></li>
+         
+          <li><a href="/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">代码审计</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81pyspider%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">一、pyspider安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%88%AC%E5%8F%96%E6%A1%88%E4%BE%8B%EF%BC%88%E5%BB%BA%E8%AE%AE%E5%A4%A7%E5%AE%B6%E5%85%88%E7%9C%8B%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">二、爬取案例（建议大家先看官方文档,快速入门）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E4%B8%AD%E9%97%B4%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91"><span class="toc-number">3.</span> <span class="toc-text">三、中间遇到的坑</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://91doufu.com/2020/08/10/pyspide%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://91doufu.com/2020/08/10/pyspide%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/&text=pyspider初步使用"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://91doufu.com/2020/08/10/pyspide%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/&title=pyspider初步使用"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://91doufu.com/2020/08/10/pyspide%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/&is_video=false&description=pyspider初步使用"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=pyspider初步使用&body=Check out this article: http://91doufu.com/2020/08/10/pyspide%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://91doufu.com/2020/08/10/pyspide%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/&title=pyspider初步使用"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://91doufu.com/2020/08/10/pyspide%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/&title=pyspider初步使用"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://91doufu.com/2020/08/10/pyspide%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/&title=pyspider初步使用"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://91doufu.com/2020/08/10/pyspide%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/&title=pyspider初步使用"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://91doufu.com/2020/08/10/pyspide%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/&name=pyspider初步使用&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> 目录</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> 顶部</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> 菜单</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    版权所有 &copy; 2020 blackdodufu
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <li><a href="/">首页</a></li><li><a href="/about/">关于</a></li><li><a href="/archives/">文章</a></li><li><a href="/tags/ctf/">CTF</a></li><li><a href="/tags/%E6%B8%97%E9%80%8F/">渗透</a></li><li><a href="/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">代码审计</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+
+
+<!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-86660611-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+
